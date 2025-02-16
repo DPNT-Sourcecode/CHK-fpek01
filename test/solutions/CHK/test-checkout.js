@@ -92,6 +92,10 @@ it('new complex', function() {
   assert.equal(checkout('NNNMRRRQ'), 270);
   assert.equal(checkout('KKKK'), 240);
   assert.equal(checkout('KKK'), 190);
+  assert.equal(checkout('STXAAAAA'), 62);
+  
+
+  
 });
 
 
