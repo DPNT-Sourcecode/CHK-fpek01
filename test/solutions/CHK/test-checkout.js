@@ -66,6 +66,20 @@ it('validate with mix offers and Fs', function() {
 
 
 
+it('check for mixed comb offer', function() {
+
+  assert.equal(checkout('NNNMRRRQ'), 270);
+  assert.equal(checkout('HHHHHVVV'), 175);
+  assert.equal(checkout('VV'), 90);
+  assert.equal(checkout('VVV'), 130);
+  assert.equal(checkout('VVVV'), 180);
+  assert.equal(checkout('UUUU'), 120);
+  assert.equal(checkout('RRRQ'), 150);
+  assert.equal(checkout('RRRRRRQQ'), 300);
+
+});
+
+
 
 
 
