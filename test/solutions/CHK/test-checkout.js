@@ -45,7 +45,7 @@ describe('CHK challenge: supermarket checkout', function() {
     it('should calculate total for mixed items and combined offers', function() {
         assert.equal(checkout('ABCD'), 115);      // 50 + 30 + 20 + 15
         assert.equal(checkout('AAABB'), 175);     // 130 + 45
-        assert.equal(checkout('AAAAAEEB'), 330);  // 200 + 80 + 0(free B)
+        assert.equal(checkout('AAAAAEEB'), 280);  // 200 + 80 + 0(free B)
         assert.equal(checkout('ABCDE'), 155);     // 50 + 30 + 20 + 15 + 40
     });
 
