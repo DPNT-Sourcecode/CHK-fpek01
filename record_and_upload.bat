@@ -10,7 +10,7 @@ set PARAM_CONFIG_FILE="%SCRIPT_CURRENT_DIR%\config\credentials.config"
 set PARAM_STORE_DIR="%SCRIPT_CURRENT_DIR%\record\localstore"
 set PARAM_SOURCECODE_DIR="%SCRIPT_CURRENT_DIR%\."
 set CMD_LINE_ARGS=%*
-
+echo %JAVA_BIN%  
 echo "Running using packaged JRE:"
 @echo on
 %JAVA_BIN%                               ^
