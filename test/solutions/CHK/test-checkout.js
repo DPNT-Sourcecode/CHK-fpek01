@@ -29,7 +29,9 @@ it('should calculate for SPECIAL E', function() {
 
 it('INVALID check', function() {
   assert.equal(checkout('a'), -1);
-
+  assert.equal(checkout('ABCa'), -1);
+  assert.equal(checkout('-'), -1);
+  
 });
 
 
@@ -61,6 +63,7 @@ it('validate with mix offers and Fs', function() {
 
 
 });
+
 
 
 
