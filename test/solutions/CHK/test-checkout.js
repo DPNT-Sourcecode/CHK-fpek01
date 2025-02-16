@@ -2,10 +2,11 @@ var mocha = require('mocha')
 var describe = mocha.describe
 var it = mocha.it
 var assert = require('assert');
-const sum = require('../../../lib/solutions/CHK/checkout');
+const checkout = require('../../../lib/solutions/CHK/checkout');
 
-describe('SUM challenge: adding two numbers', function() {
-	it('should return 3, which is the sum of 1 and 2', function() {
-	    assert.equal(sum(1, 2), 3);
+describe('CHK chal', function() {
+
+	it('should return 0 for empty string', function() {
+	    assert.equal(checkout(''), 0);
 	});
 });
