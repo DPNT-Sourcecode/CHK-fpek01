@@ -70,4 +70,3 @@ it('validate with mix offers and Fs', function() {
 
 
 });
-
