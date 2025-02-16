@@ -16,31 +16,44 @@ describe('CHK challenge: supermarket checkout', function() {
         assert.equal(checkout('B'), 30);
         assert.equal(checkout('C'), 20);
         assert.equal(checkout('D'), 15);
+        assert.equal(checkout('E'), 40);
     });
 
-    // Test special offers
-    it('should apply special offer for item A', function() {
-        assert.equal(checkout('AAAAAAA'), 310);  // 3A special offer
-        assert.equal(checkout('AAAA'), 180); // 3A special + 1 regular
+    // Test special offers for item A
+    it('should apply special offers for item A', function() {
+        assert.equal(checkout('AAA'), 130);      // 3A for 130
+        assert.equal(checkout('AAAAA'), 200);    // 5A for 200
+        assert.equal(checkout('AAAAAA'), 250);   // 5A for 200 + 1A at 50
+        assert.equal(checkout('AAAAAAAA'), 330); // 5A for 200 + 3A for 130
     });
 
+    // Test special offer for item B
     it('should apply special offer for item B', function() {
-        assert.equal(checkout('BB'), 45);    // 2B special offer
-        assert.equal(checkout('BBB'), 75);   // 2B special + 1 regular
+        assert.equal(checkout('BB'), 45);    // 2B for 45
+        assert.equal(checkout('BBB'), 75);   // 2B for 45 + 1B at 30
     });
 
-    // Test mixed items
-    it('should calculate total for mixed items', function() {
-        assert.equal(checkout('ABCD'), 115);     // 50 + 30 + 20 + 15
-        assert.equal(checkout('AAABB'), 175);    // 130 + 45
-        assert.equal(checkout('ABCDEABCDE'), -1); // Invalid input 'E'
+    // Test special offer for item E
+    it('should apply special offer for item E', function() {
+        assert.equal(checkout('EE'), 80);     // 2E at 40 each
+        assert.equal(checkout('EEB'), 80);    // 2E at 40 each, B is free
+        assert.equal(checkout('EEEB'), 120);  // 3E at 40 each, B is free
+        assert.equal(checkout('EEEEBB'), 160); // 4E at 40 each, both B are free
+    });
+
+    // Test mixed items and combined offers
+    it('should calculate total for mixed items and combined offers', function() {
+        assert.equal(checkout('ABCD'), 115);      // 50 + 30 + 20 + 15
+        assert.equal(checkout('AAABB'), 175);     // 130 + 45
+        assert.equal(checkout('AAAAAEEB'), 330);  // 200 + 80 + 0(free B)
+        assert.equal(checkout('ABCDE'), 155);     // 50 + 30 + 20 + 15 + 40
     });
 
     // Test invalid inputs
     it('should return -1 for invalid inputs', function() {
         assert.equal(checkout('a'), -1);     // lowercase
         assert.equal(checkout('1'), -1);     // numbers
-        assert.equal(checkout('E'), -1);     // invalid letter
+        assert.equal(checkout('F'), -1);     // invalid letter
         assert.equal(checkout('AB C'), -1);  // spaces
         assert.equal(checkout(null), -1);    // null
         assert.equal(checkout(undefined), -1); // undefined
