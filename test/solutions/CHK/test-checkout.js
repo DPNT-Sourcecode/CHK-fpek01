@@ -20,11 +20,11 @@ describe('CHK chal', function() {
 });
 
 
-it('should calculate for SPECIAL', function() {
-  assert.equal(checkout('A'), 50);
+it('should calculate for SPECIAL E', function() {
+  assert.equal(checkout('E'), 80);
 
-  assert.equal(checkout('AAAAAAA'), 310);
-  assert.equal(checkout('AAAA'), 180);
+  assert.equal(checkout('EEB'), 80);
+  assert.equal(checkout('EEEB'), 120);
 });
 
 it('INVALID check', function() {
