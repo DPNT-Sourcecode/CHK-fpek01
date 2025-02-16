@@ -20,7 +20,7 @@ describe('CHK challenge: supermarket checkout', function() {
 
     // Test special offers
     it('should apply special offer for item A', function() {
-        assert.equal(checkout('AAAAAA'), 260);  // 3A special offer
+        assert.equal(checkout('AAAAAAA'), 310);  // 3A special offer
         assert.equal(checkout('AAAA'), 180); // 3A special + 1 regular
     });
 
