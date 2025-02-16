@@ -88,7 +88,8 @@ it('check for mixed comb offer', function() {
 it('new complex', function() {
 
   assert.equal(checkout('STXAAAAA'), 245);
-  
+  assert.equal(checkout('HHHHHVVV'), 175);
+  assert.equal(checkout('NNNMRRRQ'), 270);
   
   
 });
