@@ -17,6 +17,7 @@ describe('CHK challenge: supermarket checkout', function() {
         assert.equal(checkout('C'), 20);
         assert.equal(checkout('D'), 15);
         assert.equal(checkout('E'), 40);
+        assert.equal(checkout('F'), 10);
     });
 
     // Test special offers for item A
@@ -41,19 +42,30 @@ describe('CHK challenge: supermarket checkout', function() {
         assert.equal(checkout('EEEEBB'), 160); // 4E at 40 each, both B are free
     });
 
+    // Test special offer for item F
+    it('should apply special offer for item F', function() {
+        assert.equal(checkout('FF'), 20);     // 2F at 10 each
+        assert.equal(checkout('FFF'), 20);    // 2F at 10 each + 1F free
+        assert.equal(checkout('FFFF'), 30);   // 3F at 10 each + 1F at 10
+        assert.equal(checkout('FFFFFF'), 40); // 4F at 10 each + 2F free
+    });
+
     // Test mixed items and combined offers
     it('should calculate total for mixed items and combined offers', function() {
         assert.equal(checkout('ABCD'), 115);      // 50 + 30 + 20 + 15
         assert.equal(checkout('AAABB'), 175);     // 130 + 45
         assert.equal(checkout('AAAAAEEB'), 280);  // 200 + 80 + 0(free B)
         assert.equal(checkout('ABCDE'), 155);     // 50 + 30 + 20 + 15 + 40
+        assert.equal(checkout('ABCDEF'), 165);    // 50 + 30 + 20 + 15 + 40 + 10
+        assert.equal(checkout('ABCDEFF'), 175);   // 50 + 30 + 20 + 15 + 40 + 20
+        assert.equal(checkout('ABCDEFFF'), 175);  // 50 + 30 + 20 + 15 + 40 + 20
     });
 
     // Test invalid inputs
     it('should return -1 for invalid inputs', function() {
         assert.equal(checkout('a'), -1);     // lowercase
         assert.equal(checkout('1'), -1);     // numbers
-        assert.equal(checkout('F'), -1);     // invalid letter
+        assert.equal(checkout('G'), -1);     // invalid letter
         assert.equal(checkout('AB C'), -1);  // spaces
         assert.equal(checkout(null), -1);    // null
         assert.equal(checkout(undefined), -1); // undefined
