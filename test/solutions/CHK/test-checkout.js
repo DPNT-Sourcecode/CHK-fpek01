@@ -77,6 +77,8 @@ it('check for mixed comb offer', function() {
   assert.equal(checkout('RRRQ'), 150);
   assert.equal(checkout('RRRRRRQQ'), 300);
   assert.equal(checkout('PPPPP'), 200);
+  assert.equal(checkout('VVVV'), 180);
+  
 });
 
 
