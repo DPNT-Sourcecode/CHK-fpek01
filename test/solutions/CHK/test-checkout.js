@@ -63,7 +63,7 @@ it('validate with mix offers and Fs', function() {
 
 
 });
-
+ 
 
 
 it('check for mixed comb offer', function() {
@@ -84,4 +84,3 @@ it('check for mixed comb offer', function() {
 
 
 });
-
