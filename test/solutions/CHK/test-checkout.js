@@ -21,7 +21,7 @@ describe('CHK chal', function() {
 
 
 it('should calculate for SPECIAL E', function() {
-  assert.equal(checkout('E'), 80);
+  assert.equal(checkout('EE'), 80);
 
   assert.equal(checkout('EEB'), 80);
   assert.equal(checkout('EEEB'), 120);
@@ -43,3 +43,4 @@ it('mix check', function() {
 
 
 });
+
