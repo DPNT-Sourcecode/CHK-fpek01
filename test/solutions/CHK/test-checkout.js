@@ -55,6 +55,8 @@ it('validate with mix offers and Fs', function() {
   assert.equal(checkout('ABCDEF'), 165);
   assert.equal(checkout('ABCDE'), 155);
   assert.equal(checkout('AAAAAEEB'), 280);
+  assert.equal(checkout('AAABB'), 175);
+  assert.equal(checkout('ABCD'), 115);
   
 
 
@@ -65,3 +67,4 @@ it('validate with mix offers and Fs', function() {
 
 
 });
+
