@@ -39,6 +39,28 @@ it('mix check', function() {
 
 });
 
+it('validate Fs', function() {
+  assert.equal(checkout('FF'), 20);
+  assert.equal(checkout('FFF'), 20);
+  assert.equal(checkout('FFFF'), 30);
+  assert.equal(checkout('FFFFFF'), 40);
+
+
+});
+
+
+it('validate with mix offers and Fs', function() {
+  assert.equal(checkout('ABCDEFFF'), 175);
+  assert.equal(checkout('ABCDEFF'), 175);
+  assert.equal(checkout('ABCDEF'), 165);
+  assert.equal(checkout('ABCDE'), 155);
+  assert.equal(checkout('AAAAAEEB'), 280);
+  
+
+
+});
+
+
 
 
 
