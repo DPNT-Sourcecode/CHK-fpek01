@@ -33,6 +33,13 @@ it('INVALID check', function() {
 });
 
 
+it('mix check', function() {
+  assert.equal(checkout('ABCD'), 115);
+  assert.equal(checkout('AAABB'), 175);
+
+});
+
+
 
 
 });
